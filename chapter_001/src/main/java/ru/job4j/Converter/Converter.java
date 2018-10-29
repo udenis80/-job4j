@@ -4,15 +4,15 @@ package ru.job4j.converter;
  * Корвертор валюты.
  */
 public class Converter {
-final int kursUS = 60;
-final int kursEU = 70;
+    final int courseUS = 60;
+    final int courseEU = 70;
     /**
      * Конвертируем рубли в евро.
      * @param value рубли.
      * @return Евро.
      */
     public int rubleToEuro(int value) {
-        return value / this.kursEU;
+        return value / this.courseEU;
     }
 
     /**
@@ -21,7 +21,7 @@ final int kursEU = 70;
      * @return Доллары
      */
     public int rubleToDollar(int value) {
-        return value / this.kursUS;
+        return value / this.courseUS;
     }
 
     /**
@@ -30,7 +30,7 @@ final int kursEU = 70;
      * @return Рубли.
      */
     public int euroToRuble(int value) {
-        return value * this.kursEU;
+        return value * this.courseEU;
     }
 
     /**
@@ -39,6 +39,6 @@ final int kursEU = 70;
      * @return Рубли
      */
     public int dollarToRuble(int value) {
-        return value * this.kursUS;
+        return value * this.courseUS;
     }
 }

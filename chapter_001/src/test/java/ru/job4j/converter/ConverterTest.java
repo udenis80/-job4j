@@ -29,4 +29,5 @@ public class ConverterTest {
         Converter converter = new Converter();
         int result = converter.dollarToRuble(1);
         assertThat(result, is(60));
-    }}
+    }
+}
