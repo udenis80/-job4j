@@ -17,8 +17,9 @@ public class DummyBot {
         if ("Привет, Бот.".equals(question)) {
             rsl = "Привет, умник.";
         }
-        if ("Пока.".equals(question)) rsl = "До скорой встречи.";
+        if ("Пока.".equals(question)) {
+            rsl = "До скорой встречи.";
+        }
         return rsl;
-
     }
 }
