@@ -4,12 +4,13 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.*;
 
 public class TriangleTest {
+
     @Test
     public void whenAreaSetThreePointsThenTriangleArea() {
         // создаем три объекта класса Point.
-        Point a = new Point(0, 0);
-        Point b = new Point(0, 2);
-        Point c = new Point(2, 0);
+        Point a = new Point(0, 2);
+        Point b = new Point(0, 4);
+        Point c = new Point(2, 8);
         // Создаем объект треугольник и передаем в него объекты точек.
         Triangle triangle = new Triangle(a, b, c);
         // Вычисляем площадь.
@@ -20,4 +21,3 @@ public class TriangleTest {
         assertThat(result, closeTo(expected, 0.1));
     }
 }
-

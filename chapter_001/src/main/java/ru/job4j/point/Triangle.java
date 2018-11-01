@@ -56,6 +56,6 @@ public class Triangle {
      * @return rls
      */
     private boolean exist(double ab, double ac, double bc) {
-        return (ab * ac * bc != 0);
+        return (ab * ac * bc != 0 && ab <= bc + ac && ac <= ab + bc && bc <= ab + ac);
     }
 }
