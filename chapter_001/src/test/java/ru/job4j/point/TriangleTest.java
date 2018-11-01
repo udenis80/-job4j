@@ -1,4 +1,6 @@
-package ru.job4j.point;import org.junit.Test;
+package ru.job4j.point;
+
+import org.junit.Test;
 
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.*;
