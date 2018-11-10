@@ -1,7 +1,7 @@
 package ru.job4j.array;
 
 /**
- * Package for calculate task.
+ * Package for FindLoop task.
  *
  * @author Denis Ukhanov (udenis80@mail.ru)
  * @version $Id$
