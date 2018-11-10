@@ -5,7 +5,7 @@ package ru.job4j.loop;
  *
  * @author Denis Ukhanov (udenis80@mail.ru)
  * @version $Id$
- * @return summ
+ * @return
  */
 
 public class Board {
