@@ -10,10 +10,9 @@ public class BubbleSortTest {
     @Test
     public void whenSortArrayWithTenElementsThenSortedArray() {
         BubbleSort sorter= new BubbleSort();
-        int[] array = new int[]{2, 1, 3, 4, 5};
+        int[] array = new int[]{5, 10, 3, 2, 4, 9, 8, 7, 6, 1};
         int[] result = sorter.sort(array);
-        int[] expect = new int[]{1, 2, 3, 4, 5};
+        int[] expect = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         assertThat(result, Matchers.is(expect));
     }
-    //напишите здесь тест, проверяющий сортировку массива из 10 элементов методом пузырька, например {1, 5, 4, 2, 3, 1, 7, 8, 0, 5}.
 }
