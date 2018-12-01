@@ -14,17 +14,15 @@ public class SumOfArrays {
 
         int[] summ = new int[a.length + b.length]; // создаем новый массив
         int i = 0, j = 0, k = 0;
-
-        while (i < a.length && j < b.length)
+        while (i < a.length && j < b.length) {
             summ[k++] = a[i] < b[j] ? a[i++] : b[j++]; // тернарный оператор
-
-        while (i < a.length)
+        }
+        while (i < a.length) {
             summ[k++] = a[i++];
-
-
-        while (j < b.length)
+        }
+        while (j < b.length) {
             summ[k++] = b[j++];
-
+        }
         return summ;
     }
 }

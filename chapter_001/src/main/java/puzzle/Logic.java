@@ -69,13 +69,13 @@ public class Logic {
         boolean result = false;
         for (int i = 0; i < table.length; i++) {
             if (table[i][0] == 1 || table[0][i] == 1) {
-                int Sum1 = table[i][0];
-                int Sum2 = table[0][i];
+                int sum1 = table[i][0];
+                int sum2 = table[0][i];
                 for (int j = 1; j < table.length; j++) {
-                    Sum1 = Sum1 + table[i][j];
-                    Sum2 = Sum2 + table[j][i];
+                    sum1 += table[i][j];
+                    sum2 += table[j][i];
                 }
-                if (Sum1 == table.length || Sum2 == table.length) {
+                if (sum1 == table.length || sum2 == table.length) {
                     result = true;
                 }
             }

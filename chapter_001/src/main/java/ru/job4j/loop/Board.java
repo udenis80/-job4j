@@ -13,7 +13,7 @@ public class Board {
         String ln = System.lineSeparator();
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                int sum = i + j;// Выше в задании мы определили закономерность, когда нужно проставлять X
+                int sum = i + j;      // Выше в задании мы определили закономерность, когда нужно проставлять X
                 if (sum % 2 == 0) {   // условие проверки, что писать пробел или X
                     screen.append("X");
                 } else {
