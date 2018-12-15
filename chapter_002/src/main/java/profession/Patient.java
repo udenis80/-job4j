@@ -1,4 +1,4 @@
-package professions;
+package profession;
 /**
  * @author Denis Uhanov (udenis80@mail.ru)
  * @version $Id$
