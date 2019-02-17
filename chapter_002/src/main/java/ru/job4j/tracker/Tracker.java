@@ -1,18 +1,20 @@
 package ru.job4j.tracker;
 
 import java.util.*;
+
 /**
+ * Realisation of method Tracker
  * @version $Id$
  * @since 0.1
  */
 public class Tracker {
 
     private final Item[] items = new Item[100];  //Массив для хранение заявок.
-    private int position = 0;
-    private static final Random RN = new Random();
+    private int position;
 
-      /**
+    /**
      * Метод реализаущий добавление заявки в хранилище
+     *
      * @param item новая заявка
      */
     public Item add(Item item) {
@@ -21,7 +23,7 @@ public class Tracker {
         return item;
     }
 
-    public Item[] getItems() {
+    public Item[] findAll() {
         Item[] result = new Item[this.position];
         for (int i = 0; i != this.position; i++) {
             result[i] = this.items[i];
@@ -29,7 +31,7 @@ public class Tracker {
         return result;
     }
 
-    public Item[] findById(String id) {
+    public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getID().equals(id)) {
@@ -43,25 +45,55 @@ public class Tracker {
     /**
      * Метод генерирует уникальный ключ для заявки.
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+     *
      * @return Уникальный ключ.
      */
     private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt(100));
+        return String.valueOf(System.currentTimeMillis());
     }
 
-    public void replace(String id, Item item) {
-
+    public boolean replace(String id, Item item) {
+        boolean result = false;
+        for (Item it : this.items) {
+            if (it.getId().equals(id)) {
+                it = item;
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 
-    public void delete(String id) {
-
+    public boolean delete(String id) {
+        boolean result = false;
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId().equals(id)) {
+                if (index < items.length) {
+                    System.arraycopy(items, index + 1, items, index, items.length - index - 1);
+                    position--;
+                    result = true;
+                    break;
+                }
+                if (index == items.length) {
+                    System.arraycopy(items, index + 1, items, index, 1);
+                    position--;
+                    result = true;
+                    break;
+                }
+            }
+        }
+        return result;
     }
 
-    public Item findByName(String id) {
-
+    public Item[] findByName(String key) {
+        int i;
+        Item[] result = new Item[position];
+        for (int index = 0; index < position; index++) {
+            if (items[index].getName().equals(key)) {
+                System.arraycopy(items, index, result, i, 1);
+                i++;
+            }
+        }
+        return result;
     }
-    public String addComment() {
-
-    }
-
 }
