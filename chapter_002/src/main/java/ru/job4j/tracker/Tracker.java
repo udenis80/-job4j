@@ -1,9 +1,8 @@
 package ru.job4j.tracker;
 
-import java.util.*;
-
 /**
  * Realisation of method Tracker
+ *
  * @version $Id$
  * @since 0.1
  */
@@ -17,11 +16,16 @@ public class Tracker {
      *
      * @param item новая заявка
      */
+
     public Item add(Item item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
         return item;
     }
+
+    /**
+     * Метод реализаущий вывод всех заявок
+     */
 
     public Item[] findAll() {
         Item[] result = new Item[this.position];
@@ -31,10 +35,16 @@ public class Tracker {
         return result;
     }
 
+    /**
+     * Метод ищет заявку, совпадающую с Id.
+     *
+     * @return Item.
+     */
+
     public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
-            if (item != null && item.getID().equals(id)) {
+            if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
             }
@@ -44,19 +54,19 @@ public class Tracker {
 
     /**
      * Метод генерирует уникальный ключ для заявки.
-     * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
      *
      * @return Уникальный ключ.
      */
+
     private String generateId() {
         return String.valueOf(System.currentTimeMillis());
     }
 
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (Item it : this.items) {
-            if (it.getId().equals(id)) {
-                it = item;
+        for (int index = 0; index < this.position; index++) {
+            if (items[index] != null && items[index].getId().equals(id)) {
+                items[index] = item;
                 result = true;
                 break;
             }
@@ -64,17 +74,23 @@ public class Tracker {
         return result;
     }
 
+    /**
+     * Метод удаляет заявку
+     *
+     * @return Массив заявок без той, что соответствует Id.
+     */
+
     public boolean delete(String id) {
         boolean result = false;
-        for (int index = 0; index < position; index++) {
+        for (int index = 0; index < this.position; index++) {
             if (items[index].getId().equals(id)) {
-                if (index < items.length) {
+                if (index < this.position) {
                     System.arraycopy(items, index + 1, items, index, items.length - index - 1);
                     position--;
                     result = true;
                     break;
                 }
-                if (index == items.length) {
+                if (index == this.position) {
                     System.arraycopy(items, index + 1, items, index, 1);
                     position--;
                     result = true;
@@ -85,13 +101,17 @@ public class Tracker {
         return result;
     }
 
+    /**
+     * Метод ищет заявку, совпадающую с именем.
+     *
+     * @return Массив заявок с одним именем.
+     */
+
     public Item[] findByName(String key) {
-        int i;
-        Item[] result = new Item[position];
-        for (int index = 0; index < position; index++) {
+        Item[] result = new Item[this.position];
+        for (int index = 0; index < this.position; index++) {
             if (items[index].getName().equals(key)) {
-                System.arraycopy(items, index, result, i, 1);
-                i++;
+                System.arraycopy(items, index, result, index, 1);
             }
         }
         return result;
