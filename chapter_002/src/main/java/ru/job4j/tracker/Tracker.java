@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
+
 /**
  * Realisation of method Tracker
  *
@@ -28,11 +30,12 @@ public class Tracker {
      */
 
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for (int i = 0; i != this.position; i++) {
-            result[i] = this.items[i];
-        }
-        return result;
+        //Item[] result = new Item[this.position];
+        //for (int i = 0; i != this.position; i++) {
+          //  result[i] = this.items[i];
+
+        //}
+        return Arrays.copyOf(items, this.position);
     }
 
     /**
