@@ -3,16 +3,16 @@ package ru.job4j.tracker;
 public class Item {
     private String id;
     private String name;
-    private String description;
-    private long create;
+    private String desc;
+ //   private long create;
     public Item() {
 
     }
 
-    public Item(String name, String description, long create) {
+    public Item(String name, String desc) {
         this.name = name;
-        this.description = description;
-        this.create = create;
+        this.desc = desc;
+   //     this.create = create;
     }
 
     public void setId(String id) {
@@ -23,13 +23,13 @@ public class Item {
         this.name = name;
     }
 
-    public void setCreate(long create) {
-        this.create = create;
-    }
+   // public void setCreate(long create) {
+   //     this.create = create;
+   // }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+   // public void setDescription(String description) {
+   //     this.description = description;
+   // }
 
     public String getId() {
         return this.id;
@@ -41,10 +41,10 @@ public class Item {
 
 
     public String getDescription() {
-        return this.description;
+        return this.desc;
     }
 
-    public long getCreate() {
-        return this.create;
-    }
+   // public long getCreate() {
+   //     return this.create;
+   // }
 }
