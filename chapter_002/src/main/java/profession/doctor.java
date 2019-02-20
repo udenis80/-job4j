@@ -4,8 +4,10 @@ package profession;
  * @version $Id$
  * @since 0.1
  */
-public class Doctor extends Profession {
+public class Doctor extends Profession{
 
-    public void cure(Patient patient);
+    public void cure(Patient patient)  {
+
+    };
 
 }

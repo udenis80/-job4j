@@ -5,5 +5,7 @@ package profession;
  * @since 0.1
  */
 public class Teacher extends Profession {
-    public void teach(Student student);
+    public void teach(Student student) {
+
+    };
 }
