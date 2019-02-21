@@ -4,7 +4,7 @@ public class Item {
     private String id;
     private String name;
     private String desc;
- //   private long create;
+    private long create;
     public Item() {
 
     }
@@ -12,7 +12,12 @@ public class Item {
     public Item(String name, String desc) {
         this.name = name;
         this.desc = desc;
-   //     this.create = create;
+    }
+
+    public Item(String name, String desc, Long create) {
+        this.name = name;
+        this.desc = desc;
+        this.create = create;
     }
 
     public void setId(String id) {
@@ -23,13 +28,13 @@ public class Item {
         this.name = name;
     }
 
-   // public void setCreate(long create) {
-   //     this.create = create;
-   // }
+    public void setCreate(long create) {
+        this.create = create;
+    }
 
-   // public void setDescription(String description) {
-   //     this.description = description;
-   // }
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
     public String getId() {
         return this.id;
@@ -40,11 +45,11 @@ public class Item {
     }
 
 
-    public String getDescription() {
+    public String getDesc() {
         return this.desc;
     }
 
-   // public long getCreate() {
-   //     return this.create;
-   // }
+    public long getCreate() {
+        return this.create;
+    }
 }

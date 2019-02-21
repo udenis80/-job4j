@@ -30,11 +30,6 @@ public class Tracker {
      */
 
     public Item[] findAll() {
-        //Item[] result = new Item[this.position];
-        //for (int i = 0; i != this.position; i++) {
-          //  result[i] = this.items[i];
-
-        //}
         return Arrays.copyOf(items, this.position);
     }
 
@@ -65,6 +60,9 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis());
     }
 
+    /**
+     * Метод заменяет заявку на другую.
+     */
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int index = 0; index < this.position; index++) {
