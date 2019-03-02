@@ -29,7 +29,7 @@ public class StartUI {
      * @param input ввод данных.
      * @param tracker хранилище заявок.
      */
-    public StartUI(Input input, Tracker tracker) {
+    private StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
@@ -37,7 +37,7 @@ public class StartUI {
     /**
      * Основой цикл программы.
      */
-    public void init() {
+    private void init() {
         boolean exit = false;
         while (!exit) {
             this.showMenu();
@@ -69,14 +69,20 @@ public class StartUI {
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
         this.tracker.add(item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+        System.out.println("Новая заявка Id : " + item.getId());
+        System.out.println("имя: " + item.getName());
+        System.out.println("описание: " + item.getDesc());
     }
 
     private void findAll() {
-        System.out.println("------------ Список всех заявок");
+        System.out.println("-----Список всех заявок-----");
         tracker.findAll();
         for (Item item : tracker.findAll()) {
-            System.out.println(item.getName());
+            System.out.println(" Id: " + item.getId());
+            System.out.println("имя: " + item.getName());
+            System.out.println("описание: " + item.getDesc());
+            System.out.println("----------------------------");
+
         }
     }
 
