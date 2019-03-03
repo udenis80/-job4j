@@ -26,7 +26,8 @@ public class StartUI {
 
     /**
      * Конструтор инициализирующий поля.
-     * @param input ввод данных.
+     *
+     * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
     private StartUI(Input input, Tracker tracker) {
@@ -46,13 +47,13 @@ public class StartUI {
                 this.createItem();
             } else if (SHOW.equals(answer)) {
                 this.findAll();
-            } else if(EDIT.equals(answer)) {
+            } else if (EDIT.equals(answer)) {
                 this.replaceItem();
-            } else if(DELETE.equals(answer)) {
+            } else if (DELETE.equals(answer)) {
                 this.deleteItem();
-            } else  if(FindByID.equals(answer)) {
+            } else if (FindByID.equals(answer)) {
                 this.findByIdItem();
-            } else if(FindByName.equals(answer)) {
+            } else if (FindByName.equals(answer)) {
                 this.findByName();
             } else if (EXIT.equals(answer)) {
                 exit = true;
@@ -76,7 +77,6 @@ public class StartUI {
 
     private void findAll() {
         System.out.println("-----Список всех заявок-----");
-        tracker.findAll();
         for (Item item : tracker.findAll()) {
             System.out.println(" Id: " + item.getId());
             System.out.println("имя: " + item.getName());
@@ -92,14 +92,16 @@ public class StartUI {
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
-        tracker.replace(id, item);
-        System.out.println("------------ Заявка : " + item.getId() + " успешно отредактирована---------");
+        if(tracker.replace(id, item)) {
+            System.out.println("------------ Заявка : " + item.getId() + " успешно отредактирована---------");
+        }
     }
+
 
     private void deleteItem() {
         System.out.println("------------ Удаление заявки");
         String id = this.input.ask("Введите id : ");
-        if(tracker.delete(id)) {
+        if (tracker.delete(id)) {
             System.out.println("Заявка удалена");
         } else System.out.println("Нет такой заявки");
     }
@@ -113,7 +115,6 @@ public class StartUI {
                 System.out.println("Имя: " + item.getName() + " ИД " + item.getId() + " ОПИСАНИЕ " + item.getDesc());
             }
         }
-
     }
 
     private void findByIdItem() {
@@ -124,8 +125,7 @@ public class StartUI {
             System.out.println("------------ Найденная заявка : " + result.getId() + "  ---------");
             System.out.println("------------ ID : " + result.getId() + "---------");
             System.out.println("------------ Описание : " + result.getDesc() + "---------");
-        }
-        else System.out.println("Заявка с таким ИД не найдена");
+        } else System.out.println("Заявка с таким ИД не найдена");
     }
 
 
@@ -142,7 +142,7 @@ public class StartUI {
 
     /**
      * Запуск программы.
-     * */
+     */
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
     }
