@@ -14,9 +14,9 @@ public class StartUI {
 
     private static final String DELETE = "3";       // Константа меню для удаления заявки.
 
-    private static final String FindByID = "4";     // Константа меню для поиска заявки по заданному Id.
+    private static final String FINDBYID = "4";     // Константа меню для поиска заявки по заданному Id.
 
-    private static final String FindByName = "5";   // Константа меню для поиска заявки по заданному Name.
+    private static final String FINDBYNAME = "5";   // Константа меню для поиска заявки по заданному Name.
 
     private static final String EXIT = "6";         //Константа для выхода из цикла.
 
@@ -51,9 +51,9 @@ public class StartUI {
                 this.replaceItem();
             } else if (DELETE.equals(answer)) {
                 this.deleteItem();
-            } else if (FindByID.equals(answer)) {
+            } else if (FINDBYID.equals(answer)) {
                 this.findByIdItem();
-            } else if (FindByName.equals(answer)) {
+            } else if (FINDBYNAME.equals(answer)) {
                 this.findByName();
             } else if (EXIT.equals(answer)) {
                 exit = true;
@@ -92,7 +92,7 @@ public class StartUI {
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
-        if(tracker.replace(id, item)) {
+        if (tracker.replace(id, item)) {
             System.out.println("------------ Заявка : " + item.getId() + " успешно отредактирована---------");
         }
     }
@@ -103,7 +103,9 @@ public class StartUI {
         String id = this.input.ask("Введите id : ");
         if (tracker.delete(id)) {
             System.out.println("Заявка удалена");
-        } else System.out.println("Нет такой заявки");
+        } else {
+            System.out.println("Нет такой заявки");
+        }
     }
 
     private void findByName() {
@@ -125,7 +127,9 @@ public class StartUI {
             System.out.println("------------ Найденная заявка : " + result.getId() + "  ---------");
             System.out.println("------------ ID : " + result.getId() + "---------");
             System.out.println("------------ Описание : " + result.getDesc() + "---------");
-        } else System.out.println("Заявка с таким ИД не найдена");
+        } else {
+            System.out.println("Заявка с таким ИД не найдена");
+        }
     }
 
 
