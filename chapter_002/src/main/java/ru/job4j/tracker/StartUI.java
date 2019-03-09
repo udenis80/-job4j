@@ -123,7 +123,7 @@ public class StartUI {
         Item result = tracker.findById(id);
         if (result != null) {
             System.out.println("------------ Найденная заявка : " + result.getId() + "  ---------");
-            System.out.println("------------ ID : " + result.getId() + "---------");
+            System.out.println("------------ имя : " + result.getName() + "---------");
             System.out.println("------------ Описание : " + result.getDesc() + "---------");
         } else {
             System.out.println("Заявка с таким ИД не найдена");

@@ -33,7 +33,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "0", "Test name 1", "desc1", "0", "test name2", "desc2", "1", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll()[2].getName(), is("test name2")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(tracker.findAll()[2].getName(), is("test name2"));
     }
 
     @Test
@@ -46,15 +46,26 @@ public class StartUITest {
         Input input = new StubInput(new String[]{"3", item.getId(), "0", "test delete", "desc", "6"});
         // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
-        // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
         assertThat(tracker.findAll()[0].getName(), is("test delete"));
     }
 
     @Test
-    public void whenFindByNameThenTrackerHasfoundItems() {
+    public void whenFindByNameThenTrackerHasFoundItems() {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "0", "test name", "desc1", "0", "test name2", "desc2", "5", "test name", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findByName("test name")[0].getName(), is("test name"));
+    }
+
+    @Test
+    public void whenFindByIdThenTrackerHasFoundItems() {
+        // создаём Tracker
+        Tracker tracker = new Tracker();
+        //Напрямую добавляем заявку
+        Item item = tracker.add(new Item("test name", "desc"));
+        //создаём StubInput с последовательностью действий(производим поиск заявки по ид)
+        Input input = new StubInput(new String[]{"4", item.getId(), "6"});   //создаём StubInput с последовательностью действий
+        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
+        assertThat(tracker.findById(item.getId()).getName(), is("test name"));
     }
 }
