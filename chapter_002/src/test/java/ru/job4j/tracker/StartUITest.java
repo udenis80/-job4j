@@ -36,5 +36,17 @@ public class StartUITest {
         assertThat(tracker.findAll()[2].getName(), is("test name2")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
-
+    @Test
+    public void whenDeleteThenTrackerHasDeletedValue() {
+        // создаём Tracker
+        Tracker tracker = new Tracker();
+        //Напрямую добавляем заявку
+        Item item = tracker.add(new Item("test name", "desc"));
+        //создаём StubInput с последовательностью действий(производим удаление заявки)
+        Input input = new StubInput(new String[]{"3", item.getId(), "0", "test delete", "desc", "6"});
+        // создаём StartUI и вызываем метод init()
+        new StartUI(input, tracker).init();
+        // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(tracker.findAll()[0].getName(), is("test delete"));
+    }
 }
