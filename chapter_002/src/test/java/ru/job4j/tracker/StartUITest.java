@@ -27,4 +27,14 @@ public class StartUITest {
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
+
+    @Test
+    public void whenGetAllThenTrackerGiveAllItems() {
+        Tracker tracker = new Tracker();     // создаём Tracker
+        Input input = new StubInput(new String[]{"0", "test name", "desc", "0", "Test name 1", "desc1", "0", "test name2", "desc2", "1", "6"});   //создаём StubInput с последовательностью действий
+        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
+        assertThat(tracker.findAll()[2].getName(), is("test name2")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+    }
+
+
 }

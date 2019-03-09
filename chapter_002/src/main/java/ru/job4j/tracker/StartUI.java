@@ -27,10 +27,8 @@ public class StartUI {
 
     /**
      * Конструтор инициализирующий поля.
-     *
-     * @param input   ввод данных.
-     * @param tracker хранилище заявок.
-     */
+     *  @param input   ввод данных.
+     * @param tracker хранилище заявок.*/
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
@@ -65,6 +63,7 @@ public class StartUI {
     /**
      * Метод реализует добавленяи новый заявки в хранилище.
      */
+
     private void createItem() {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
@@ -83,7 +82,6 @@ public class StartUI {
             System.out.println("имя: " + item.getName());
             System.out.println("описание: " + item.getDesc());
             System.out.println("----------------------------");
-
         }
     }
 
@@ -97,7 +95,6 @@ public class StartUI {
             System.out.println("------------ Заявка : " + item.getId() + " успешно отредактирована---------");
         }
     }
-
 
     private void deleteItem() {
         System.out.println("------------ Удаление заявки");
