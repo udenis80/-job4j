@@ -51,10 +51,15 @@ public class StartUITest {
 
     @Test
     public void whenFindByNameThenTrackerHasFoundItems() {
-        Tracker tracker = new Tracker();     // создаём Tracker
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "0", "test name", "desc1", "0", "test name2", "desc2", "5", "test name", "6"});   //создаём StubInput с последовательностью действий
-        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findByName("test name")[0].getName(), is("test name"));
+        Tracker tracker = new Tracker();
+        Item[] items = {
+                tracker.add(new Item("test", "desc2")),
+                tracker.add(new Item("test", "desc3")),
+                tracker.add(new Item("test", "desc4")),
+        };
+        Input input = new StubInput(new String[]{"5", "test", "6"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findByName("test"), is(items));
     }
 
     @Test
