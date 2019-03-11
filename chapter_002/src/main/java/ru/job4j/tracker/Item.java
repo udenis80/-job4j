@@ -5,8 +5,8 @@ public class Item {
     private String name;
     private String desc;
     private long create;
-    public Item(String[] strings) {
 
+    public Item() {
     }
 
     public Item(String name, String desc) {

@@ -9,6 +9,7 @@ import java.util.Random;
  * @version $Id$
  * @since 0.1
  */
+
 public class Tracker {
 
     private final Item[] items = new Item[100];  //Массив для хранение заявок.
@@ -65,6 +66,7 @@ public class Tracker {
     /**
      * Метод заменяет заявку на другую.
      */
+
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int index = 0; index < this.position; index++) {
