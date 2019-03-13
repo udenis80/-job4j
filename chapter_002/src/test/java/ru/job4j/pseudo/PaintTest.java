@@ -28,8 +28,8 @@ public class PaintTest {
                 is(
                         new StringBuilder()
                                 .append("++++")
-                                .append("+     +")
-                                .append("+     +")
+                                .append("+  +")
+                                .append("+  +")
                                 .append("++++")
                                 .append(System.lineSeparator())
                                 .toString()
