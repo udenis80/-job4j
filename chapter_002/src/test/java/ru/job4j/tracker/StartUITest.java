@@ -1,11 +1,16 @@
 package ru.job4j.tracker;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import java.util.StringJoiner;
 
 public class StartUITest {
+
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
@@ -73,4 +78,60 @@ public class StartUITest {
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findById(item.getId()).getName(), is("test name"));
     }
+
+    String menu() {
+        return new StringJoiner(System.lineSeparator(), "", "")
+                .add("Меню.")
+                .add("0. Добавить новую заявку.")
+                .add("1. Вывести все заявки.")
+                .add("2. Редактировать заявку.")
+                .add("3. Удалить заявку.")
+                .add("4. Найти заявку по Id.")
+                .add("5. Найти заявку по имени.")
+                .add("6. Выход.")
+                .toString();
+    }
+
+    // поле содержит дефолтный вывод в консоль.
+    PrintStream stdout = System.out;
+    // буфер для результата.
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+
+    @Before
+    public void loadOutput() {
+        System.out.println("execute before method");
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+        System.out.println("execute after method");
+    }
+
+    @Test
+    public void whenAddItemTrackerThenFindAllItems() {
+        loadOutput();
+        Tracker tracker = new Tracker();     // создаём Tracker
+        Item item = tracker.add(new Item("name", "desc"));
+        Input input = new StubInput(new String[]{"1", "6"});   //создаём StubInput с последовательностью действий
+        new StartUI(input, tracker).init();
+        assertThat(
+                this.out.toString(),
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("execute before method")
+                                .add(menu())
+                                .add("-----Список всех заявок-----")
+                                .add("Id: " + item.getId())
+                                .add("имя: " + item.getName())
+                                .add("описание: " + item.getDesc())
+                                .add("----------------------------")
+                                .add(menu())
+                                .toString()
+                )
+        );
+    }
+
 }

@@ -78,7 +78,7 @@ public class StartUI {
     private void findAll() {
         System.out.println("-----Список всех заявок-----");
         for (Item item : tracker.findAll()) {
-            System.out.println(" Id: " + item.getId());
+            System.out.println("Id: " + item.getId());
             System.out.println("имя: " + item.getName());
             System.out.println("описание: " + item.getDesc());
             System.out.println("----------------------------");
