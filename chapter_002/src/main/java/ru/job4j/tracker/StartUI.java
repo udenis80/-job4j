@@ -108,7 +108,7 @@ public class StartUI {
 
     private void findByName() {
         System.out.println("------------ Поиск заявки по имени: ");
-        String name = this.input.ask("Введите имя : ");
+        String name = this.input.ask("Введите имя: ");
         for (Item item : tracker.findByName(name)) {
             if (item != null) {
                 System.out.println("------------ Найденная заявка : ---------");
@@ -122,7 +122,7 @@ public class StartUI {
         String id = this.input.ask("Введите Id : ");
         Item result = tracker.findById(id);
         if (result != null) {
-            System.out.println("------------ Найденная заявка : " + result.getId() + "  ---------");
+            System.out.println("------------ Найденная заявка : " + result.getId() + "---------");
             System.out.println("------------ имя : " + result.getName() + "---------");
             System.out.println("------------ Описание : " + result.getDesc() + "---------");
         } else {

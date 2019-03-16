@@ -134,4 +134,48 @@ public class StartUITest {
         );
     }
 
+    @Test
+    public void whenFindByNameThenItem() {
+        loadOutput();
+        Tracker tracker = new Tracker();     // создаём Tracker
+        Item item = tracker.add(new Item("name", "desc"));
+        Input input = new StubInput(new String[]{"5", "name", "6"});   //создаём StubInput с последовательностью действий
+        new StartUI(input, tracker).init();
+        assertThat(
+                this.out.toString(),
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("execute before method")
+                                .add(menu())
+                                .add("------------ Поиск заявки по имени: ")
+                                .add("------------ Найденная заявка : ---------")
+                                .add("Имя: name ИД " + item.getId() + " ОПИСАНИЕ desc")
+                                .add(menu())
+                                .toString()
+                )
+        );
+    }
+
+    @Test
+    public void whenFindByIdThenItem() {
+        loadOutput();
+        Tracker tracker = new Tracker();     // создаём Tracker
+        Item item = tracker.add(new Item("name", "desc"));
+        Input input = new StubInput(new String[]{"4", item.getId(), "6"});   //создаём StubInput с последовательностью действий
+        new StartUI(input, tracker).init();
+        assertThat(
+                this.out.toString(),
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("execute before method")
+                                .add(menu())
+                                .add("------------ Поиск заявки по Id: ")
+                                .add("------------ Найденная заявка : " + item.getId() + "---------")
+                                .add("------------ имя : " + item.getName() + "---------")
+                                .add("------------ Описание : " + item.getDesc() + "---------")
+                                .add(menu())
+                                .toString()
+                )
+        );
+    }
 }
