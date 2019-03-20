@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class Tracker {
 
-    private final Item[] items = new Item[100];  //Массив для хранение заявок.
+    private final Item[] items = new Item[10];  //Массив для хранение заявок.
     private int position;
     private static final Random RN = new Random();
 
@@ -63,6 +63,7 @@ public class Tracker {
     private String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
+
     /**
      * Метод заменяет заявку на другую.
      */
@@ -90,7 +91,7 @@ public class Tracker {
         boolean result = false;
         for (int index = 0; index < this.position; index++) {
             if (items[index].getId().equals(id)) {
-                if (index < this.position) {
+                if (index != this.position) {
                     System.arraycopy(items, index + 1, items, index, items.length - index - 1);
                     position--;
                     result = true;
@@ -106,6 +107,7 @@ public class Tracker {
         }
         return result;
     }
+
 
     /**
      * Метод ищет заявку, совпадающую с именем.

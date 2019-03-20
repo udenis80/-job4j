@@ -20,6 +20,12 @@ public class Item {
         this.create = create;
     }
 
+    public Item(String id, String name, String desc) {
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
