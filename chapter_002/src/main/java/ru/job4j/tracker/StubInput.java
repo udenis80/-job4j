@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.List;
-
 public class StubInput implements Input {
 
     private final String[] value;
@@ -16,7 +14,7 @@ public class StubInput implements Input {
         return this.value[this.position++];
     }
 
-public int ask(String question, List<Integer> range) {
+public int ask(String question, Integer[] range) {
   //      throw new UnsupportedOperationException("Unsupported operation");
     return -1;
 }
