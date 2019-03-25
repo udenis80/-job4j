@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
 import java.util.StringJoiner;
 
 public class StartUITest {
-/**
+
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});   //создаём StubInput с последовательностью действий
-        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
+        new StartUI(input).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
@@ -28,7 +28,7 @@ public class StartUITest {
         //создаём StubInput с последовательностью действий(производим замену заявки)
         Input input = new StubInput(new String[]{"2", item.getId(), "test replace", "заменили заявку", "6"});
         // создаём StartUI и вызываем метод init()
-        new StartUI(input, tracker).init();
+        new StartUI(input).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
@@ -37,7 +37,7 @@ public class StartUITest {
     public void whenGetAllThenTrackerGiveAllItems() {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "0", "Test name 1", "desc1", "0", "test name2", "desc2", "1", "6"});   //создаём StubInput с последовательностью действий
-        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
+        new StartUI(input).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[2].getName(), is("test name2"));
     }
 
@@ -50,7 +50,7 @@ public class StartUITest {
         //создаём StubInput с последовательностью действий(производим удаление заявки)
         Input input = new StubInput(new String[]{"3", item.getId(), "0", "test delete", "desc", "6"});
         // создаём StartUI и вызываем метод init()
-        new StartUI(input, tracker).init();
+        new StartUI(input).init();
         assertThat(tracker.findAll()[0].getName(), is("test delete"));
     }
 
@@ -63,7 +63,7 @@ public class StartUITest {
                 tracker.add(new Item("test", "desc4")),
         };
         Input input = new StubInput(new String[]{"5", "test", "6"});
-        new StartUI(input, tracker).init();
+        new StartUI(input).init();
         assertThat(tracker.findByName("test"), is(items));
     }
 
@@ -75,7 +75,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("test name", "desc"));
         //создаём StubInput с последовательностью действий(производим поиск заявки по ид)
         Input input = new StubInput(new String[]{"4", item.getId(), "6"});   //создаём StubInput с последовательностью действий
-        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
+        new StartUI(input).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findById(item.getId()).getName(), is("test name"));
     }
 
@@ -116,7 +116,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Item item = tracker.add(new Item("name", "desc"));
         Input input = new StubInput(new String[]{"1", "6"});   //создаём StubInput с последовательностью действий
-        new StartUI(input, tracker).init();
+        new StartUI(input).init();
         assertThat(
                 this.out.toString(),
                 is(
@@ -140,7 +140,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Item item = tracker.add(new Item("name", "desc"));
         Input input = new StubInput(new String[]{"5", "name", "6"});   //создаём StubInput с последовательностью действий
-        new StartUI(input, tracker).init();
+        new StartUI(input).init();
         assertThat(
                 this.out.toString(),
                 is(
@@ -162,7 +162,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Item item = tracker.add(new Item("name", "desc"));
         Input input = new StubInput(new String[]{"4", item.getId(), "6"});   //создаём StubInput с последовательностью действий
-        new StartUI(input, tracker).init();
+        new StartUI(input).init();
         assertThat(
                 this.out.toString(),
                 is(
@@ -178,5 +178,4 @@ public class StartUITest {
                 )
         );
     }
-    */
 }

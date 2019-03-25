@@ -1,37 +1,27 @@
 package ru.job4j.tracker;
 
-/**
- * @author Maxim Dick (maxim1994barca@gmail.com)
- * @version $Id$
- * @since 0.1
- */
+import java.util.ArrayList;
+import java.util.List;
 
 public class StartUI {
-
     private final Input input;
 
-    private final Tracker tracker;
-
-    /**
-     * Конструктор инициализирующий поля.
-     * @param input ввод данных.
-     * @param tracker хранилище заявок.
-     */
-
-    public StartUI(Input input, Tracker tracker) {
+    public StartUI(Input input) {
         this.input = input;
-        this.tracker = tracker;
     }
 
     public void init() {
         Tracker tracker = new Tracker();
         MenuTracker menu = new MenuTracker(this.input, tracker);
+        List<Integer> range = new ArrayList<>();
         menu.fillActions();
+        for (int i = 0; i < menu.getActionsLength(); i++) {
+            range.add(i);
+        }
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("Select: "));
-            menu.select(key);
-        } while (!"y".equals(this.input.ask("Exit? (y)")));
+            menu.select(input.ask("select:", range));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
     /**
@@ -39,7 +29,9 @@ public class StartUI {
      *
      * @param args
      */
+
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        Input input = new ValidateInput();
+        new StartUI(input).init();
     }
 }

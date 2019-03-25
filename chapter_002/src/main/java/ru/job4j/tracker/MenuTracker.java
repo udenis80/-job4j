@@ -110,7 +110,6 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("Find All items: ");
-            tracker.findAll();
             int numberItem = 1;
             for (Item item : tracker.findAll()) {
                 System.out.println("Item № " + numberItem++);
@@ -184,12 +183,11 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Delete item ------------");
             String id = input.ask("Please, provide item id: ");
-            String name = input.ask("Please, provide item name: ");
-            String description = input.ask("Please, provide item desc: ");
-            Item item = new Item(id, name, description);
-            System.out.println("------------ Удаляемая заявка : ");
-            System.out.println(item);
-            tracker.delete(id);
+            if (tracker.delete(id)) {
+                System.out.println("Have done");
+            } else {
+                System.out.println("Item not found");
+            }
         }
 
         @Override
