@@ -2,14 +2,15 @@ package ru.job4j.tracker;
 
 public class StartUI {
     private final Input input;
+    private final Tracker tracker;
 
-    public StartUI(Input input) {
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
+        this.tracker = tracker;
     }
 
     public void init() {
-        Tracker tracker = new Tracker();
-        MenuTracker menu = new MenuTracker(this.input, tracker);
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
         Integer[] range = new Integer[menu.getActionsLength()];
         for (int i = 0; i < range.length; i++) {
@@ -21,14 +22,8 @@ public class StartUI {
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
-    /**
-     * Запускт программы.
-     *
-     * @param args
-     */
-
     public static void main(String[] args) {
         Input input = new ValidateInput();
-        new StartUI(input).init();
+        new StartUI(input, new Tracker()).init();
     }
 }

@@ -10,12 +10,14 @@ public class StubInput implements Input {
         this.value = value;
     }
 
+    @Override
     public String ask(String question) {
         return this.value[this.position++];
     }
 
-public int ask(String question, Integer[] range) {
-  //      throw new UnsupportedOperationException("Unsupported operation");
-    return -1;
-}
+    @Override
+    public int ask(String question, Integer[] range) {
+       // throw new UnsupportedOperationException("Unsupported operation");
+        return Integer.valueOf(ask(question));
+    }
 }

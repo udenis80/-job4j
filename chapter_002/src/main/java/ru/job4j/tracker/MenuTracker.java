@@ -26,6 +26,7 @@ public class MenuTracker {
      * Метод заполняет массив.
      */
     public void fillActions() {
+        System.out.println("Menu");
         this.actions.add(new AddItem(0, "Add new item"));
         this.actions.add(new ShowItems(1, "Show all items"));
         this.actions.add(new UpdateItem(2, "Edit item"));
@@ -219,7 +220,7 @@ public class MenuTracker {
             if (item != null) {
                 System.out.println("have found the item with id: " + item.getId());
                 System.out.println("name: " + item.getName());
-                System.out.println("description " + item.getDesc());
+                System.out.println("description: " + item.getDesc());
             } else {
                 System.out.println("Item not found");
             }
