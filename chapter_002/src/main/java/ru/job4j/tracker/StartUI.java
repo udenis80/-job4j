@@ -12,7 +12,7 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
-        Integer[] range = new Integer[menu.getActionsLength()];
+        int[] range = new int[menu.getActionsLength()];
         for (int i = 0; i < range.length; i++) {
             range[i] = i;
         }
@@ -23,7 +23,11 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Input input = new ValidateInput();
-        new StartUI(input, new Tracker()).init();
+        new StartUI(
+                new ValidateInput(
+                        new ConsoleInput()
+                ),
+                new Tracker()
+        ).init();
     }
 }
