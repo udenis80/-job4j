@@ -17,7 +17,17 @@ public class StubInput implements Input {
 
     @Override
     public int ask(String question, int[] range) {
-       // throw new UnsupportedOperationException("Unsupported operation");
-        return Integer.valueOf(ask(question));
+        boolean exist = false;
+        int key = Integer.valueOf(this.ask(question));
+        for (int i : range) {
+            if (i == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (!exist) {
+            throw new MenuOutException("out of menu range");
+        }
+        return key;
     }
 }
