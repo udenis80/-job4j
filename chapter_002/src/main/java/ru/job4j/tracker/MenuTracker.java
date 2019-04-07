@@ -57,25 +57,13 @@ public class MenuTracker {
         }
     }
 
-    private class AddItem implements UserAction {
-
-        public int key;
-        public String name;
+    private class AddItem extends BaseAction {
 
         public AddItem(int key, String name) {
-            this.key = key;
-            this.name = name;
+            super(key, name);
         }
 
         @Override
-        public int key() {
-            return key;
-        }
-
-        /**
-         * Метод реализует добавление новой заявки в хранилище.
-         */
-
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Adding new item ------------");
             String name = input.ask("Please, provide item name: ");
@@ -86,26 +74,12 @@ public class MenuTracker {
             System.out.println("------------ New Item with Name : " + item.getName());
             System.out.println("------------ New Item with Description : " + item.getDesc());
         }
-
-        @Override
-        public String info() {
-            return String.format("%s, %s", key, name);
-        }
     }
 
-    private class ShowItems implements UserAction {
-
-        public int key;
-        public String name;
+    private class ShowItems extends BaseAction {
 
         public ShowItems(int key, String name) {
-            this.key = key;
-            this.name = name;
-        }
-
-        @Override
-        public int key() {
-            return key;
+            super(key, name);
         }
 
         @Override
@@ -120,27 +94,12 @@ public class MenuTracker {
                 System.out.println("Id: " + item.getId());
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s, %s", key, name);
-        }
     }
 
-
-    private class UpdateItem implements UserAction {
-
-        public int key;
-        public String name;
+    private class UpdateItem extends BaseAction {
 
         public UpdateItem(int key, String name) {
-            this.key = key;
-            this.name = name;
-        }
-
-        @Override
-        public int key() {
-            return key;
+            super(key, name);
         }
 
         @Override
@@ -156,28 +115,13 @@ public class MenuTracker {
             } else {
                 System.out.println("Item not found");
             }
-
-        }
-
-        @Override
-        public String info() {
-            return String.format("%s, %s", key, name);
         }
     }
 
-    private class DeleteItem implements UserAction {
-
-        public int key;
-        public String name;
+    private class DeleteItem extends BaseAction {
 
         public DeleteItem(int key, String name) {
-            this.key = key;
-            this.name = name;
-        }
-
-        @Override
-        public int key() {
-            return key;
+            super(key, name);
         }
 
         @Override
@@ -190,26 +134,12 @@ public class MenuTracker {
                 System.out.println("Item not found");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s, %s", key, name);
-        }
     }
 
-    private class FindItemById implements UserAction {
-
-        int key;
-        String name;
+    private class FindItemById extends BaseAction {
 
         public FindItemById(int key, String name) {
-            this.key = key;
-            this.name = name;
-        }
-
-        @Override
-        public int key() {
-            return key;
+            super(key, name);
         }
 
         @Override
@@ -225,26 +155,12 @@ public class MenuTracker {
                 System.out.println("Item not found");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s, %s", key, name);
-        }
     }
 
-    private class FindItemByName implements UserAction {
-
-        public int key;
-        public String name;
+    private class FindItemByName extends BaseAction {
 
         public FindItemByName(int key, String name) {
-            this.key = key;
-            this.name = name;
-        }
-
-        @Override
-        public int key() {
-            return key;
+            super(key, name);
         }
 
         @Override
@@ -259,38 +175,18 @@ public class MenuTracker {
                 }
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s, %s", key, name);
-        }
     }
 
-
-    private class ExitProgram implements UserAction {
-
-        int key;
-        String name;
+    private class ExitProgram extends BaseAction {
 
         public ExitProgram(int key, String name) {
-            this.key = key;
-            this.name = name;
-        }
-
-        @Override
-        public int key() {
-            return key;
+            super(key, name);
         }
 
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Good bay ------------");
         }
-
-        @Override
-        public String info() {
-            return String.format("%d. %s", key, name);
-        }
     }
-
 }
+
