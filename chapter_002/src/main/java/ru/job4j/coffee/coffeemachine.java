@@ -4,7 +4,7 @@ package ru.job4j.coffee;
 /**
  * @author Denis Uhanov (udenis80@mail.ru)
  * @version 1
- * @since 1900
+ * @since 2019
  */
 public class CoffeeMachine {
 
@@ -19,6 +19,8 @@ public class CoffeeMachine {
                 result[count++] = values[i];
             }
         }
-        return result;
+        int[] coin = new int[count];
+        System.arraycopy(result, 0, coin, 0, count);
+        return coin;
     }
 }
