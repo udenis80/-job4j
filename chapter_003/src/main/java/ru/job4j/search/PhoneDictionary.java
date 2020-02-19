@@ -18,8 +18,8 @@ public class PhoneDictionary {
          * @return Список подошедщих пользователей.
          */
 
-        public List<Person> find(String key) {
-        List<Person> result = new ArrayList<>();
+        public ArrayList<Person> find(String key) {
+        ArrayList<Person> result = new ArrayList<>();
             for (int i = 0; i < persons.size(); i++) {
                 if (persons.get(i) != null && persons.get(i).getName().contains(key)
                         || persons.get(i).getSurname().contains(key) || persons.get(i).getAddress().contains(key)
