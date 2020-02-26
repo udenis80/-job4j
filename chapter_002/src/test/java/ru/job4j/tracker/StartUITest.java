@@ -3,11 +3,13 @@ package ru.job4j.tracker;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.StringJoiner;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import java.util.StringJoiner;
 
 public class StartUITest {
 
@@ -16,7 +18,7 @@ public class StartUITest {
        Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "y"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(tracker.findAll().get(0).getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
     @Test
@@ -38,7 +40,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "name", "desc", "n", "0", "name1", "desc1", "n", "0", "name2", "desc2", "n", "1", "y"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll()[1].getName(), is("name1"));
+        assertThat(tracker.findAll().get(1).getName(), is("name1"));
     }
 
     @Test
@@ -51,7 +53,7 @@ public class StartUITest {
         Input input = new StubInput(new String[]{"3", item.getId(), "n", "0", "test delete", "desc", "y"});
         // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0].getName(), is("test delete"));
+        assertThat(tracker.findAll().get(0).getName(), is("test delete"));
     }
 
     @Test
