@@ -112,11 +112,9 @@ public class Tracker {
 
     public List<Item> findByName(String key) {
         List<Item> result = new ArrayList<>();
-        int count = 0;
         for (int index = 0; index < position; index++) {
             if (this.items.get(index).getName().equals(key)) {
-                result.add(count, this.items.get(index));
-                count++;
+                result.add(this.items.get(index));
             }
         }
         return result;
