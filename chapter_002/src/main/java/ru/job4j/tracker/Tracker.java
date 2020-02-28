@@ -15,7 +15,6 @@ import java.util.Random;
 public class Tracker {
 
     private final List<Item> items = new ArrayList<>();  // хранение заявок.
-    private int position;
     private static final Random RN = new Random();
 
 
@@ -27,7 +26,7 @@ public class Tracker {
 
     public Item add(Item item) {
         item.setId(this.generateId());
-        this.items.add(position++, item);
+        this.items.add(item);
         return item;
     }
 
@@ -49,7 +48,7 @@ public class Tracker {
     public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
+            if (item.getId().equals(id)) {
                 result = item;
                 break;
             }
@@ -73,7 +72,7 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int index = 0; index < this.position; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId().equals(id)) {
                 item.setId(id);
                 items.set(index, item);
@@ -92,10 +91,10 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean result = false;
-        for (int index = 0; index < this.position; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (this.items.get(index).getId().equals(id)) {
                 this.items.remove(index);
-                position--;
+       //         index--;
                 result = true;
                 break;
             }
@@ -112,9 +111,9 @@ public class Tracker {
 
     public List<Item> findByName(String key) {
         List<Item> result = new ArrayList<>();
-        for (int index = 0; index < position; index++) {
-            if (this.items.get(index).getName().equals(key)) {
-                result.add(this.items.get(index));
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                result.add(item);
             }
         }
         return result;
