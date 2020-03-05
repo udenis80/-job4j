@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
-public class Item {
+import java.util.Comparator;
+
+public class Item  {
     private String id;
     private String name;
     private String desc;
@@ -20,10 +22,29 @@ public class Item {
         this.create = create;
     }
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", create=" + create +
+                '}';
+    }
+
     public Item(String id, String name, String desc) {
         this.id = id;
         this.name = name;
         this.desc = desc;
+    }
+
+    class CompareItem implements Comparator<Item> {
+
+        @Override
+        public int compare(Item o1, Item o2) {
+            return Integer.valueOf(o1.getId()) - Integer.valueOf(o2.getId());
+        }
+
     }
 
     public void setId(String id) {
