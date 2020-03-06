@@ -12,11 +12,12 @@ public class UniqueText {
         HashSet<String> orig = new HashSet<>();
         for (String i : origin) {
             check.add(i);
-            for (String j : text) {
-                orig.add(j);
-            }
-        if (check.containsAll(orig)) {
-                rsl = true;
+        }
+        for (String j : text) {
+            orig.add(j);
+            if (check.contains(j)) {
+                rsl = false;
+                break;
             }
         }
         return rsl;
