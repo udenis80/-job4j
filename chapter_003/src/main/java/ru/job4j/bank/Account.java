@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Account {
     private String requisite;
     private double balance;
-    private double amount;
 
     public Account(String requisite, double balance) {
         this.requisite = requisite;
@@ -16,16 +15,8 @@ public class Account {
         return requisite;
     }
 
-    public void setRequisite(String requisite) {
-        this.requisite = requisite;
-    }
-
     public double getBalance() {
         return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
     }
 
     @Override
