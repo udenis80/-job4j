@@ -42,7 +42,7 @@ public class Item  {
 
         @Override
         public int compare(Item o1, Item o2) {
-            return Integer.valueOf(o1.getId()) - Integer.valueOf(o2.getId());
+            return Integer.valueOf(o1.getName()) - Integer.valueOf(o2.getName());
         }
 
     }
