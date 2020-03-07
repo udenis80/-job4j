@@ -40,7 +40,7 @@ public class BankService {
                                  String destPassport, String dеstRequisite, double amount) {
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account outAccount = findByRequisite(destPassport, dеstRequisite);
-        if (account != null || outAccount != null) {
+        if (account != null && outAccount != null) {
            account.transfer(outAccount, amount);
             return true;
         }
