@@ -10,37 +10,41 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-    users.get(findByPassport(passport)).add(account);
+        if (findByPassport(passport) != null) {
+            users.get(findByPassport(passport)).add(account);
+        }
     }
 
     public User findByPassport(String passport) {
+        User user1 = null;
         for (User user : users.keySet()) {
             if (user.getPassport().equals(passport)) {
-                return user;
+                user1 = user;
             }
         }
-        return null;
+        return user1;
     }
 
     public Account findByRequisite(String passport, String requisite) {
+        Account account1 = null;
         List<Account> accountList = users.get(findByPassport(passport));
         for (Account account : accountList) {
             if (account.getRequisite().equals(requisite)) {
-                return account;
+                account1 = account;
             }
         }
-        return null;
+        return account1;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String dеstRequisite, double amount) {
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account outAccount = findByRequisite(destPassport, dеstRequisite);
-        if (account == null || outAccount == null || account.getBalance() < amount) {
-            return false;
+        if (account != null || outAccount != null || account.getBalance() > amount) {
+            account.transfer(outAccount, amount);
+            return true;
         }
-        account.setBalance(account.getBalance() - amount); // списание
-        outAccount.setBalance(outAccount.getBalance() + amount); // поступление
-        return true;
-    }
+    return false;
+            }
+
 }

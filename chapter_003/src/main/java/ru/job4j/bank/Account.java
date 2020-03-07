@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Account {
     private String requisite;
     private double balance;
+    private double amount;
 
     public Account(String requisite, double balance) {
         this.requisite = requisite;
@@ -38,5 +39,15 @@ public class Account {
     @Override
     public int hashCode() {
         return Objects.hash(requisite);
+    }
+
+    public boolean transfer(Account outAccount, double amount) {
+        boolean result = false;
+        if (balance >= amount) {
+            this.balance -= amount;
+            outAccount.balance += amount;
+            result = true;
+        }
+        return result;
     }
 }
