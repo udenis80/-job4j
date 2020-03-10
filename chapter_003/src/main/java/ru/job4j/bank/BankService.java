@@ -38,12 +38,13 @@ public class BankService {
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String dеstRequisite, double amount) {
+        boolean result = false;
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account outAccount = findByRequisite(destPassport, dеstRequisite);
         if (account != null && outAccount != null) {
-           account.transfer(outAccount, amount);
-            return true;
+            account.transfer(outAccount, amount);
+            result = true;
         }
-    return false;
-            }
+        return result;
+    }
 }
