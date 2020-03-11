@@ -14,7 +14,7 @@ public class ConsoleInput implements Input {
         int key = Integer.valueOf(this.ask(question));
         boolean exist = false;
         for (int i = 0; i < range.length; i++) {
-            if(range[i] == key) {
+            if (range[i] == key) {
                 exist = true;
                 break;
             }

@@ -172,8 +172,7 @@ public class MenuTracker {
                     System.out.println("Have found the item with name: " + item.getName());
                     System.out.println("id: " + item.getId());
                     System.out.println("desc: " + item.getDesc());
-                }
-                else {
+                } else {
                     System.out.println("Item not found.");
                 }
             }
