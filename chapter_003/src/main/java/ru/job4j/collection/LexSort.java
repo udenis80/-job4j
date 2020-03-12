@@ -6,13 +6,13 @@ public class LexSort implements Comparator<String> {
 
     @Override
     public int compare(String left, String right) {
+        int minLength = Math.min(left.length(), right.length());
         int result = 0;
-        for (int i = 0; i < left.length() && i < right.length(); i++) {
-            result = left.compareTo(right);
-            if (result != 0) {
-                result = Integer.compare(left.length(), right.length());
+        for (int i = 0; i < minLength; i++) {
+            if (left.charAt(i) != right.charAt(i)) {
                 break;
             }
+            result = Character.compare(left.charAt(i), right.charAt(i));
         }
         return result;
     }
