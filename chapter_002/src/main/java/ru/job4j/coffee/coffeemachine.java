@@ -1,13 +1,12 @@
 package ru.job4j.coffee;
 
-
 /**
  * @author Denis Uhanov (udenis80@mail.ru)
  * @version 1
  * @since 2019
  */
-public class CoffeeMachine {
 
+public class CoffeeMachine {
     public int[] changes(int value, int price) {
         int change = (value > price ? value - price : 0);
         int count = 0;
