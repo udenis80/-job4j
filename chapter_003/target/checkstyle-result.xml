@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\bank\Account.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\bank\BankService.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\bank\User.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\Account.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\ConvertList.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\ConvertList2Array.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\ConvertMatrix2List.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\Job.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobAscByName.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobAscByPriority.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobDescByName.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobDescByPriority.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobSorter.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\LexSort.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\NotifyAccount.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\StringCompare.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\UniqueText.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\UsageArrayList.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\UsageHashSet.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\UsageMap.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\User.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\FullSearch.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\Person.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\PhoneDictionary.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\PriorityQueue.java">
+</file>
+<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\Task.java">
+</file>
+</checkstyle>
