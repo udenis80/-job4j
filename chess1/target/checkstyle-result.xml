@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\Chess.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\exceptions\FigureNotFoundException.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\exceptions\ImpossibleMoveException.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\exceptions\OccupiedWayException.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\black\BishopBlack.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\black\KingBlack.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\black\KnightBlack.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\black\PawnBlack.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\black\QeenBlack.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\black\RookBlack.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\Cell.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\Figure.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\white\BishopWhite.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\white\KingWhite.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\white\KnightWhite.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\white\PawnWhite.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\white\QeenWhite.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\firuges\white\RookWhite.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\main\java\ru\job4j\chess\Logic.java">
+</file>
+<file name="C:\projects\job4j\chess1\src\test\java\ru\job4j\AppTest.java">
+</file>
+</checkstyle>
