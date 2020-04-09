@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Logic.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">chapter_001</a> &gt; <a href="index.source.html" class="el_package">puzzle</a> &gt; <span class="el_source">Logic.java</span></div><h1>Logic.java</h1><pre class="source lang-java linenums">package puzzle;
+
+import puzzle.firuges.Cell;
+import puzzle.firuges.Figure;
+
+/**
+ * @author Denis Uhanov (udenis80@mail.ru)
+ * @version $Id$
+ * @since 0.1
+ */
+public class Logic {
+    private final int size;
+    private final Figure[] figures;
+<span class="fc" id="L14">    private int index = 0;</span>
+
+<span class="fc" id="L16">    public Logic(int size) {</span>
+<span class="fc" id="L17">        this.size = size;</span>
+<span class="fc" id="L18">        this.figures = new Figure[size * size];</span>
+<span class="fc" id="L19">    }</span>
+
+    public void add(Figure figure) {
+<span class="nc" id="L22">        this.figures[this.index++] = figure;</span>
+<span class="nc" id="L23">    }</span>
+
+    public boolean move(Cell source, Cell dest) {
+<span class="nc" id="L26">        boolean rst = false;</span>
+<span class="nc" id="L27">        int index = this.findBy(source);</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (index != -1) {</span>
+<span class="nc" id="L29">            Cell[] steps = this.figures[index].way(source, dest);</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            if (this.isFree(steps)) {</span>
+<span class="nc" id="L31">                rst = true;</span>
+<span class="nc" id="L32">                this.figures[index] = this.figures[index].copy(dest);</span>
+            }
+        }
+<span class="nc" id="L35">        return rst;</span>
+    }
+
+    public boolean isFree(Cell ... cells) {
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        boolean result = cells.length &gt; 0;</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (Cell cell : cells) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (this.findBy(cell) != -1) {</span>
+<span class="nc" id="L42">               result = false;</span>
+<span class="nc" id="L43">               break;</span>
+            }
+        }
+<span class="nc" id="L46">        return result;</span>
+    }
+
+    public void clean() {
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        for (int position = 0; position != this.figures.length; position++) {</span>
+<span class="nc" id="L51">            this.figures[position] = null;</span>
+        }
+<span class="nc" id="L53">        this.index = 0;</span>
+<span class="nc" id="L54">    }</span>
+
+    private int findBy(Cell cell) {
+<span class="nc" id="L57">        int rst = -1;</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        for (int index = 0; index != this.figures.length; index++) {</span>
+<span class="nc bnc" id="L59" title="All 4 branches missed.">            if (this.figures[index] != null &amp;&amp; this.figures[index].position().equals(cell)) {</span>
+<span class="nc" id="L60">                rst = index;</span>
+<span class="nc" id="L61">                break;</span>
+            }
+        }
+<span class="nc" id="L64">        return rst;</span>
+    }
+
+    public boolean isWin() {
+<span class="fc" id="L68">        int[][] table = this.convert();</span>
+<span class="fc" id="L69">        boolean result = false;</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        for (int i = 0; i &lt; table.length; i++) {</span>
+<span class="fc bfc" id="L71" title="All 4 branches covered.">            if (table[i][0] == 1 || table[0][i] == 1) {</span>
+<span class="fc" id="L72">                int sum1 = table[i][0];</span>
+<span class="fc" id="L73">                int sum2 = table[0][i];</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">                for (int j = 1; j &lt; table.length; j++) {</span>
+<span class="fc" id="L75">                    sum1 += table[i][j];</span>
+<span class="fc" id="L76">                    sum2 += table[j][i];</span>
+                }
+<span class="fc bfc" id="L78" title="All 4 branches covered.">                if (sum1 == table.length || sum2 == table.length) {</span>
+<span class="fc" id="L79">                    result = true;</span>
+                }
+            }
+        }
+<span class="fc" id="L83">        return result;</span>
+    }
+
+    public int[][] convert() {
+<span class="nc" id="L87">        int[][] table = new int[this.size][this.size];</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        for (int row = 0; row != table.length; row++) {</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">            for (int cell = 0; cell != table.length; cell++) {</span>
+<span class="nc" id="L90">                int position = this.findBy(new Cell(row, cell));</span>
+<span class="nc bnc" id="L91" title="All 4 branches missed.">                if (position != -1 &amp;&amp; this.figures[position].movable()) {</span>
+<span class="nc" id="L92">                    table[row][cell] = 1;</span>
+                }
+            }
+        }
+<span class="nc" id="L96">        return table;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

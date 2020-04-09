@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tracker.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">chapter_002</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.tracker</a> &gt; <span class="el_source">Tracker.java</span></div><h1>Tracker.java</h1><pre class="source lang-java linenums">package ru.job4j.tracker;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+
+/**
+ * Realisation of method Tracker
+ *
+ * @version $Id$
+ * @since 0.1
+ */
+
+<span class="fc" id="L15">public class Tracker {</span>
+
+<span class="fc" id="L17">    private final List&lt;Item&gt; items = new ArrayList&lt;&gt;();  // хранение заявок.</span>
+<span class="fc" id="L18">    private static final Random RN = new Random();</span>
+
+
+    /**
+     * Метод реализаущий добавление заявки в хранилище
+     *
+     * @param item новая заявка
+     */
+
+    public Item add(Item item) {
+<span class="fc" id="L28">        item.setId(this.generateId());</span>
+<span class="fc" id="L29">        this.items.add(item);</span>
+<span class="fc" id="L30">        return item;</span>
+    }
+
+    /**
+     * Метод реализаущий вывод всех заявок
+     */
+
+    public List&lt;Item&gt; findAll() {
+
+<span class="fc" id="L39">        return this.items;</span>
+    }
+
+    /**
+     * Метод ищет заявку, совпадающую с Id.
+     *
+     * @return Item.
+     */
+
+    public Item findById(String id) {
+<span class="fc" id="L49">        Item result = null;</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        for (Item item : items) {</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">            if (item.getId().equals(id)) {</span>
+<span class="fc" id="L52">                result = item;</span>
+<span class="fc" id="L53">                break;</span>
+            }
+<span class="nc" id="L55">        }</span>
+<span class="fc" id="L56">        return result;</span>
+    }
+
+    /**
+     * Метод генерирует уникальный ключ для заявки.
+     *
+     * @return Уникальный ключ.
+     */
+
+    private String generateId() {
+<span class="fc" id="L66">        return String.valueOf(System.currentTimeMillis() + RN.nextInt());</span>
+    }
+
+    /**
+     * Метод заменяет заявку на другую.
+     */
+
+    public boolean replace(String id, Item item) {
+<span class="fc" id="L74">        boolean result = false;</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">        for (int index = 0; index &lt; items.size(); index++) {</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">            if (items.get(index).getId().equals(id)) {</span>
+<span class="fc" id="L77">                item.setId(id);</span>
+<span class="fc" id="L78">                items.set(index, item);</span>
+<span class="fc" id="L79">                result = true;</span>
+<span class="fc" id="L80">                break;</span>
+            }
+        }
+<span class="fc" id="L83">        return result;</span>
+    }
+
+    /**
+     * Метод удаляет заявку
+     *
+     * @return Массив заявок без той, что соответствует Id.
+     */
+
+    public boolean delete(String id) {
+<span class="fc" id="L93">        boolean result = false;</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        for (int index = 0; index &lt; items.size(); index++) {</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">            if (this.items.get(index).getId().equals(id)) {</span>
+<span class="fc" id="L96">                this.items.remove(index);</span>
+       //         index--;
+<span class="fc" id="L98">                result = true;</span>
+<span class="fc" id="L99">                break;</span>
+            }
+        }
+<span class="fc" id="L102">        return result;</span>
+    }
+
+
+    /**
+     * Метод ищет заявку, совпадающую с именем.
+     *
+     * @return Массив заявок с одним именем.
+     */
+
+    public List&lt;Item&gt; findByName(String key) {
+<span class="fc" id="L113">        List&lt;Item&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        for (Item item : items) {</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">            if (item.getName().equals(key)) {</span>
+<span class="fc" id="L116">                result.add(item);</span>
+            }
+<span class="fc" id="L118">        }</span>
+<span class="fc" id="L119">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

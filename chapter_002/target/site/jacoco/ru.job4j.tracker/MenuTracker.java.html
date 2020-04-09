@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MenuTracker.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">chapter_002</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.tracker</a> &gt; <span class="el_source">MenuTracker.java</span></div><h1>MenuTracker.java</h1><pre class="source lang-java linenums">package ru.job4j.tracker;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuTracker {
+    private Input input;
+    private Tracker tracker;
+<span class="fc" id="L9">    private List&lt;UserAction&gt; actions = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L11">    public MenuTracker(Input input, Tracker tracker) {</span>
+<span class="fc" id="L12">        this.input = input;</span>
+<span class="fc" id="L13">        this.tracker = tracker;</span>
+<span class="fc" id="L14">    }</span>
+
+    /**
+     * Метод для получения массива меню.
+     *
+     * @return длину массива
+     */
+    public int getActionsLength() {
+<span class="fc" id="L22">        return this.actions.size();</span>
+    }
+
+    /**
+     * Метод заполняет массив.
+     */
+    public void fillActions() {
+<span class="fc" id="L29">        System.out.println(&quot;Menu&quot;);</span>
+<span class="fc" id="L30">        this.actions.add(new AddItem(0, &quot;Add new item&quot;));</span>
+<span class="fc" id="L31">        this.actions.add(new ShowItems(1, &quot;Show all items&quot;));</span>
+<span class="fc" id="L32">        this.actions.add(new UpdateItem(2, &quot;Edit item&quot;));</span>
+<span class="fc" id="L33">        this.actions.add(new DeleteItem(3, &quot;Delete item&quot;));</span>
+<span class="fc" id="L34">        this.actions.add(new FindItemById(4, &quot;Find item by Id&quot;));</span>
+<span class="fc" id="L35">        this.actions.add(new FindItemByName(5, &quot;Find item by Name&quot;));</span>
+<span class="fc" id="L36">        this.actions.add(new ExitProgram(6, &quot;Exit Program&quot;));</span>
+<span class="fc" id="L37">    }</span>
+
+    /**
+     * Метод в зависимости от указанного ключа, выполняет соответсвующие действия
+     *
+     * @param key ключ операции
+     */
+    public void select(int key) {
+<span class="fc" id="L45">        this.actions.get(key).execute(this.input, this.tracker);</span>
+<span class="fc" id="L46">    }</span>
+
+    /**
+     * Метод выводит на экран меню.
+     */
+
+    public void show() {
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        for (UserAction action : this.actions) {</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">            if (action != null) {</span>
+<span class="fc" id="L55">                System.out.println(action.info());</span>
+            }
+<span class="fc" id="L57">        }</span>
+<span class="fc" id="L58">    }</span>
+
+    private class AddItem extends BaseAction {
+
+<span class="fc" id="L62">        public AddItem(int key, String name) {</span>
+<span class="fc" id="L63">            super(key, name);</span>
+<span class="fc" id="L64">        }</span>
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+<span class="fc" id="L68">            System.out.println(&quot;------------ Adding new item ------------&quot;);</span>
+<span class="fc" id="L69">            String name = input.ask(&quot;Please, provide item name: &quot;);</span>
+<span class="fc" id="L70">            String desc = input.ask(&quot;Please, provide item desc: &quot;);</span>
+<span class="fc" id="L71">            Item item = new Item(name, desc);</span>
+<span class="fc" id="L72">            tracker.add(item);</span>
+<span class="fc" id="L73">            System.out.println(&quot;------------ New Item with Id : &quot; + item.getId());</span>
+<span class="fc" id="L74">            System.out.println(&quot;------------ New Item with Name : &quot; + item.getName());</span>
+<span class="fc" id="L75">            System.out.println(&quot;------------ New Item with Description : &quot; + item.getDesc());</span>
+<span class="fc" id="L76">        }</span>
+    }
+
+    private class ShowItems extends BaseAction {
+
+<span class="fc" id="L81">        public ShowItems(int key, String name) {</span>
+<span class="fc" id="L82">            super(key, name);</span>
+<span class="fc" id="L83">        }</span>
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+<span class="fc" id="L87">            System.out.println(&quot;Find All items: &quot;);</span>
+<span class="fc" id="L88">            int numberItem = 1;</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">            for (Item item : tracker.findAll()) {</span>
+<span class="fc" id="L90">                System.out.println(&quot;Item № &quot; + numberItem++);</span>
+<span class="fc" id="L91">                System.out.println(&quot;Name: &quot; + item.getName());</span>
+<span class="fc" id="L92">                System.out.println(&quot;Desc: &quot; + item.getDesc());</span>
+<span class="fc" id="L93">                System.out.println(&quot;Create: &quot; + item.getCreate());</span>
+<span class="fc" id="L94">                System.out.println(&quot;Id: &quot; + item.getId());</span>
+<span class="fc" id="L95">            }</span>
+<span class="fc" id="L96">        }</span>
+    }
+
+    private class UpdateItem extends BaseAction {
+
+<span class="fc" id="L101">        public UpdateItem(int key, String name) {</span>
+<span class="fc" id="L102">            super(key, name);</span>
+<span class="fc" id="L103">        }</span>
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+<span class="fc" id="L107">            System.out.println(&quot;------------ Replace item ------------&quot;);</span>
+<span class="fc" id="L108">            String id = input.ask(&quot;Please, provide item id: &quot;);</span>
+<span class="fc" id="L109">            String name = input.ask(&quot;Please, provide item name: &quot;);</span>
+<span class="fc" id="L110">            String desc = input.ask(&quot;Please, provide item desc: &quot;);</span>
+<span class="fc" id="L111">            Item item = new Item(id, name, desc);</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">            if (tracker.replace(id, item)) {</span>
+<span class="fc" id="L113">                System.out.println(&quot;------------ Заявка после редактирования : &quot;);</span>
+<span class="fc" id="L114">                System.out.println(&quot;ID: &quot; + item.getId() + &quot; name: &quot; + item.getName() + &quot; desc: &quot; + item.getDesc());</span>
+            } else {
+<span class="nc" id="L116">                System.out.println(&quot;Item not found&quot;);</span>
+            }
+<span class="fc" id="L118">        }</span>
+    }
+
+    private class DeleteItem extends BaseAction {
+
+<span class="fc" id="L123">        public DeleteItem(int key, String name) {</span>
+<span class="fc" id="L124">            super(key, name);</span>
+<span class="fc" id="L125">        }</span>
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+<span class="fc" id="L129">            System.out.println(&quot;------------ Delete item ------------&quot;);</span>
+<span class="fc" id="L130">            String id = input.ask(&quot;Please, provide item id: &quot;);</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">            if (tracker.delete(id)) {</span>
+<span class="fc" id="L132">                System.out.println(&quot;Have done&quot;);</span>
+            } else {
+<span class="nc" id="L134">                System.out.println(&quot;Item not found&quot;);</span>
+            }
+<span class="fc" id="L136">        }</span>
+    }
+
+    private class FindItemById extends BaseAction {
+
+<span class="fc" id="L141">        public FindItemById(int key, String name) {</span>
+<span class="fc" id="L142">            super(key, name);</span>
+<span class="fc" id="L143">        }</span>
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+<span class="fc" id="L147">            System.out.println(&quot;------------ Find item by id : &quot;);</span>
+<span class="fc" id="L148">            String id = input.ask(&quot;Please, provide item id: &quot;);</span>
+<span class="fc" id="L149">            Item item = tracker.findById(id);</span>
+<span class="pc bpc" id="L150" title="1 of 2 branches missed.">            if (item != null) {</span>
+<span class="fc" id="L151">                System.out.println(&quot;have found the item with id: &quot; + item.getId());</span>
+<span class="fc" id="L152">                System.out.println(&quot;name: &quot; + item.getName());</span>
+<span class="fc" id="L153">                System.out.println(&quot;description: &quot; + item.getDesc());</span>
+            } else {
+<span class="nc" id="L155">                System.out.println(&quot;Item not found&quot;);</span>
+            }
+<span class="fc" id="L157">        }</span>
+    }
+
+    private class FindItemByName extends BaseAction {
+
+<span class="fc" id="L162">        public FindItemByName(int key, String name) {</span>
+<span class="fc" id="L163">            super(key, name);</span>
+<span class="fc" id="L164">        }</span>
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+<span class="nc" id="L168">            System.out.println(&quot;------------ Find item by name : &quot;);</span>
+<span class="nc" id="L169">            String name = input.ask(&quot;Please, provide item name: &quot;);</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">            for (Item item : tracker.findByName(name)) {</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">                if (item != null) {</span>
+<span class="nc" id="L172">                    System.out.println(&quot;Have found the item with name: &quot; + item.getName());</span>
+<span class="nc" id="L173">                    System.out.println(&quot;id: &quot; + item.getId());</span>
+<span class="nc" id="L174">                    System.out.println(&quot;desc: &quot; + item.getDesc());</span>
+                } else {
+<span class="nc" id="L176">                    System.out.println(&quot;Item not found.&quot;);</span>
+                }
+<span class="nc" id="L178">            }</span>
+<span class="nc" id="L179">        }</span>
+    }
+
+    private class ExitProgram extends BaseAction {
+
+<span class="fc" id="L184">        public ExitProgram(int key, String name) {</span>
+<span class="fc" id="L185">            super(key, name);</span>
+<span class="fc" id="L186">        }</span>
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+<span class="nc" id="L190">            System.out.println(&quot;------------ Good bay ------------&quot;);</span>
+<span class="nc" id="L191">        }</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

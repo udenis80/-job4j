@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Block.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">chapter_001</a> &gt; <a href="index.source.html" class="el_package">puzzle.firuges</a> &gt; <span class="el_source">Block.java</span></div><h1>Block.java</h1><pre class="source lang-java linenums">package puzzle.firuges;
+
+public class Block implements Figure {
+    private final Cell position;
+
+<span class="nc" id="L6">    public Block(final Cell position) {</span>
+<span class="nc" id="L7">        this.position = position;</span>
+<span class="nc" id="L8">    }</span>
+
+    @Override
+    public Cell position() {
+<span class="nc" id="L12">        return this.position;</span>
+    }
+
+    @Override
+    public Cell[] way(Cell source, Cell dest) {
+<span class="nc" id="L17">        return new Cell[0];</span>
+    }
+
+    @Override
+    public Figure copy(Cell dest) {
+<span class="nc" id="L22">        throw new IllegalStateException(&quot;Block could not move.&quot;);</span>
+    }
+
+    @Override
+    public boolean movable() {
+<span class="nc" id="L27">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

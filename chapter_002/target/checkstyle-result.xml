@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\pseudo\Paint.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\pseudo\Shape.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\pseudo\Square.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\pseudo\StartPseudo.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\pseudo\Triangle.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\BaseAction.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\ConsoleInput.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\Input.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\Item.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\MenuOutException.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\MenuTracker.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\StartUI.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\StubInput.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\Tracker.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\TrackerSingleEager.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\TrackerSingleEnum.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\TrackerSingleInsert.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\TrackerSingleLazy.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\UserAction.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\main\java\ru\job4j\tracker\ValidateInput.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\test\java\ru\job4j\pseudo\PaintTest.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\test\java\ru\job4j\pseudo\SquareTest.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\test\java\ru\job4j\pseudo\TriangleTest.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\test\java\ru\job4j\tracker\StartUITest.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\test\java\ru\job4j\tracker\TrackerTest.java">
+</file>
+<file name="C:\projects\job4j\chapter_002\src\test\java\ru\job4j\tracker\ValidateInputTest.java">
+</file>
+</checkstyle>

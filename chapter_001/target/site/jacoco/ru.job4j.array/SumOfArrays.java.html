@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SumOfArrays.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">chapter_001</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.array</a> &gt; <span class="el_source">SumOfArrays.java</span></div><h1>SumOfArrays.java</h1><pre class="source lang-java linenums">package ru.job4j.array;
+
+import java.util.Arrays;
+
+/**
+ * Package for Addition two sorted arrays task.
+ *
+ * @author Denis Ukhanov (udenis80@mail.ru)
+ * @version $Id$
+ * @since 0.1
+ */
+<span class="fc" id="L12">public class SumOfArrays {</span>
+    public static int[] best(int[] a, int[] b) {
+
+<span class="fc" id="L15">        int[] summ = new int[a.length + b.length]; // создаем новый массив</span>
+<span class="fc" id="L16">        int i = 0, j = 0, k = 0;</span>
+<span class="pc bpc" id="L17" title="1 of 4 branches missed.">        while (i &lt; a.length &amp;&amp; j &lt; b.length) {</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">            summ[k++] = a[i] &lt; b[j] ? a[i++] : b[j++]; // тернарный оператор</span>
+        }
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        while (i &lt; a.length) {</span>
+<span class="nc" id="L21">            summ[k++] = a[i++];</span>
+        }
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        while (j &lt; b.length) {</span>
+<span class="fc" id="L24">            summ[k++] = b[j++];</span>
+        }
+<span class="fc" id="L26">        return summ;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
