@@ -39,6 +39,5 @@ public class Departments {
         System.out.println(list);
         sortDesc(list);
         System.out.println(list);
-
     }
 }
