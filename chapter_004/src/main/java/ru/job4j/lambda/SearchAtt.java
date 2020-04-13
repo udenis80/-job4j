@@ -33,6 +33,5 @@ public class SearchAtt {
         );
         attachments.stream().filter(p -> p.getSize() > 100).forEach(System.out::println);
         attachments.stream().filter(p -> p.getName().contains("on")).forEach(System.out::println);
-
     }
 }
