@@ -7,8 +7,7 @@ public class Profile {
         return address;
     }
 
-//    public Profile(Address address) {
-//        this.address = address;
-//    }
-
+    public Profile(Address address) {
+        this.address = address;
+    }
 }
