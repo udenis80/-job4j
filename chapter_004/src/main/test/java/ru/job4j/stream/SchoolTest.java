@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class SchoolTest {
     @Test
-    public void classAcollectTest() {
+    public void classACollectTest() {
         School school = new School();
         List<Student> students = Arrays.asList(
                 new Student(77),
@@ -21,18 +21,18 @@ public class SchoolTest {
         assertThat(2, is(classA.size()));
     }
     @Test
-    public void classBcollectTest() {
+    public void classBCollectTest() {
         School school = new School();
         List<Student> students = Arrays.asList(
                 new Student(55),
                 new Student(52),
                 new Student(67)
         );
-        List<Student> classB = school.collect(students, x -> x.getScore() > 50 && x.getScore() < 70);
+        List<Student> classB = school.collect(students, x -> x.getScore() >= 50 && x.getScore() < 70);
         assertThat(3, is(classB.size()));
     }
     @Test
-    public void classCcollectTest() {
+    public void classCCollectTest() {
         School school = new School();
         List<Student> students = Arrays.asList(
                 new Student(77),
