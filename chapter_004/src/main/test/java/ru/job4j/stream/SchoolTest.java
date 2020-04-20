@@ -13,9 +13,9 @@ public class SchoolTest {
     public void classACollectTest() {
         School school = new School();
         List<Student> students = Arrays.asList(
-                new Student(77),
-                new Student(92),
-                new Student(25)
+                new Student("A", 77),
+                new Student("B", 92),
+                new Student("C", 25)
         );
         List<Student> classA = school.collect(students, x -> x.getScore() >= 70);
         assertThat(2, is(classA.size()));
@@ -24,9 +24,9 @@ public class SchoolTest {
     public void classBCollectTest() {
         School school = new School();
         List<Student> students = Arrays.asList(
-                new Student(55),
-                new Student(52),
-                new Student(67)
+                new Student("A", 55),
+                new Student("B", 52),
+                new Student("C", 67)
         );
         List<Student> classB = school.collect(students, x -> x.getScore() >= 50 && x.getScore() < 70);
         assertThat(3, is(classB.size()));
@@ -35,9 +35,9 @@ public class SchoolTest {
     public void classCCollectTest() {
         School school = new School();
         List<Student> students = Arrays.asList(
-                new Student(77),
-                new Student(92),
-                new Student(25)
+                new Student("A", 77),
+                new Student("B", 92),
+                new Student("C", 25)
         );
         List<Student> classC = school.collect(students, x -> x.getScore() < 50);
         assertThat(1, is(classC.size()));
