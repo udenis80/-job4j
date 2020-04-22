@@ -1,57 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="6.11.2">
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\bank\Account.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\lambda\Attachment.java">
+<error line="22" column="20" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="23" column="40" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="24" column="34" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\bank\BankService.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\lambda\AttachmentSort.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\bank\User.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\lambda\Diapason.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\Account.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\lambda\FI.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\ConvertList.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\lambda\Lazy.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\ConvertList2Array.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\lambda\RefMethod.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\ConvertMatrix2List.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\lambda\SearchAtt.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\Departments.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\Account.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\Job.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\Address.java">
+<error line="37" column="27" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="38" column="40" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="39" column="46" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="40" column="34" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="41" column="44" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="54" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="55" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobAscByName.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\BankService.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobAscByPriority.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\Matrix.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobDescByName.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\Profile.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobDescByPriority.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\Profiles.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\JobSorter.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\School.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\LexSort.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\SchoolAPI.java">
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\NotifyAccount.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\Student.java">
+<error line="23" column="27" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="24" column="46" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="25" column="36" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\StringCompare.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\StudentAPI.java">
+<error line="28" column="30" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="29" column="40" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="30" column="36" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 </file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\UniqueText.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\UsageArrayList.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\UsageHashSet.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\UsageMap.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\collection\User.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\FullSearch.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\Person.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\PhoneDictionary.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\PriorityQueue.java">
-</file>
-<file name="C:\projects\job4j\chapter_003\src\main\java\ru\job4j\search\Task.java">
+<file name="C:\projects\job4j\chapter_004\src\main\java\ru\job4j\stream\User.java">
 </file>
 </checkstyle>
