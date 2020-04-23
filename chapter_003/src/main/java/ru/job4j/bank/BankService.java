@@ -10,39 +10,40 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        if (findByPassport(passport) != null) {
+        if (findByPassport(passport).isPresent()) {
             users.get(findByPassport(passport)).add(account);
         }
     }
 
-    public User findByPassport(String passport) {
-        User user1 = null;
-        for (User user : users.keySet()) {
+    public Optional<User> findByPassport(String passport) {
+        Optional result = Optional.empty();
+        for (var user : users.keySet()) {
             if (user.getPassport().equals(passport)) {
-                user1 = user;
+                result = Optional.of(user);
+                break;
             }
         }
-        return user1;
+        return result;
     }
 
-    public Account findByRequisite(String passport, String requisite) {
-        Account account1 = null;
+    public Optional<Account> findByRequisite(String passport, String requisite) {
+        Optional<Account> result = Optional.empty();
         List<Account> accountList = users.get(findByPassport(passport));
-        for (Account account : accountList) {
+        for (var account : accountList) {
             if (account.getRequisite().equals(requisite)) {
-                account1 = account;
+                result = Optional.of(account);
             }
         }
-        return account1;
+        return result;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String requisiteDest, double amount) {
         boolean result = false;
-        Account account = findByRequisite(srcPassport, srcRequisite);
-        Account outAccount = findByRequisite(destPassport, requisiteDest);
-        if (account != null && outAccount != null) {
-            account.transfer(outAccount, amount);
+        Optional<Account> account = findByRequisite(srcPassport, srcRequisite);
+       Optional<Account> outAccount = findByRequisite(destPassport, requisiteDest);
+        if (account.isPresent() && outAccount.isPresent()) {
+            Account.transfer(outAccount, amount);
             result = true;
         }
         return result;
