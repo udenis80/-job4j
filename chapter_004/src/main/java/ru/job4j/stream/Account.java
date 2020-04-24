@@ -19,6 +19,14 @@ public class Account {
         return balance;
     }
 
+    public void setRequisite(String requisite) {
+        this.requisite = requisite;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
