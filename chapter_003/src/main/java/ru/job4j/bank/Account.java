@@ -41,7 +41,7 @@ public class Account {
         boolean result = false;
         if (balance >= amount) {
             this.balance -= amount;
-            outAccount.balance += amount;
+            outAccount.get().balance += amount;
             result = true;
         }
         return result;
