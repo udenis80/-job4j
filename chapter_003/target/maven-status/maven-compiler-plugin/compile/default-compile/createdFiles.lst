@@ -5,6 +5,7 @@ ru\job4j\collection\UniqueText.class
 ru\job4j\collection\ConvertMatrix2List.class
 ru\job4j\collection\Job.class
 ru\job4j\search\Task.class
+ru\job4j\collection\DepDescComp.class
 ru\job4j\collection\Account.class
 ru\job4j\collection\ConvertList.class
 ru\job4j\collection\ConvertList2Array.class
