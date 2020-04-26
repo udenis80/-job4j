@@ -41,9 +41,9 @@ public class BankService {
                                  String destPassport, String requisiteDest, double amount) {
         boolean result = false;
         Optional<Account> account = findByRequisite(srcPassport, srcRequisite);
-       Optional<Account> outAccount = findByRequisite(destPassport, requisiteDest);
+        Optional<Account> outAccount = findByRequisite(destPassport, requisiteDest);
         if (account.isPresent() && outAccount.isPresent()) {
-            Account.transfer(outAccount, amount);
+            account.get().transfer(outAccount, amount);
             result = true;
         }
         return result;

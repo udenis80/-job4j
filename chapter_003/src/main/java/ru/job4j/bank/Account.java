@@ -37,7 +37,7 @@ public class Account {
         return Objects.hash(requisite);
     }
 
-    public boolean transfer(Account outAccount, double amount) {
+    public boolean transfer(Optional<Account> outAccount, double amount) {
         boolean result = false;
         if (balance >= amount) {
             this.balance -= amount;
